@@ -1,11 +1,10 @@
-package comunicaArduino.Agentes;
 import embedded.mas.bridges.jacamo.EmbeddedAgent;
 import embedded.mas.bridges.jacamo.JSONDevice;
-import embedded.mas.bridges.ros.ROS4EmbeddedMas;
+import embedded.mas.bridges.ros.Ros4EmbeddedMas;
 
 import jason.asSyntax.Atom;
 
-public class DemoEmbeddedAgent extends EmbeddedAgent {
+public class DemoEmbeddedAgentROS extends EmbeddedAgent {
 	
 
 	@Override
