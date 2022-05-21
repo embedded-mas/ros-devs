@@ -1,3 +1,7 @@
+/**
+
+**/
+
 import java.util.Collection;
 
 import embedded.mas.bridges.jacamo.JSONWatcherDevice;
@@ -16,9 +20,15 @@ public class MyDemoDevice extends RosDevice {
 		super(id, microcontroller);
 	}
 
+        /* Translate actions into ros topic publications 
+           args: 0. Topic name
+                 1. Topic type
+                 2. Topic value
+        */
 	@Override
 	public boolean execEmbeddedAction(String actionName, Object[] args) {
-		this.microcontroller.write(actionName);
+		if(actionName.equals("action1"))
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/action1","std_msgs/String",(String) args[0]);		   
 		return true;
 	}
 	
