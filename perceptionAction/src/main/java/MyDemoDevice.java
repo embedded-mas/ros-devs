@@ -24,11 +24,19 @@ public class MyDemoDevice extends RosDevice {
            args: 0. Topic name
                  1. Topic type
                  2. Topic value
+           obs: args are Strings. The action arguments are send to the ros as strings.
+                Type conversions are handled in the "microcontroller" (DefaultRos4EmbeddedMas)       
         */
 	@Override
-	public boolean execEmbeddedAction(String actionName, Object[] args) {
-		if(actionName.equals("action1"))
-		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/action1","std_msgs/String",(String) args[0]);		   
+	public boolean execEmbeddedAction(String actionName, Object[] args) {		
+		if(actionName.equals("update_value1"))		   
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/value1","std_msgs/Int32",(String)args[0]);
+		else
+		if(actionName.equals("update_value2"))		   
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/value2","std_msgs/Int32",(String)args[0]);
+		else	
+		if(actionName.equals("update_time"))		   
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/current_time","std_msgs/String",(String)args[0]);	   	   		   
 		return true;
 	}
 	
