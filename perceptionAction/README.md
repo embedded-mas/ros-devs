@@ -50,5 +50,5 @@ An agent can connect with multiple ROS core. The connections are also defined in
 
 
 Values of topics are added to the belief base of the agent as `topic_name(topic_value)`. 
-The agents use the `defaultEmbeddedInternalAction' to write values in topics. This internal action is not related to ROS itself. It is translated to ROS publications in the class
+The agents use the `defaultEmbeddedInternalAction' to write values in topics. This internal action is not related to ROS itself. It is translated to ROS publications in the class /src/main/java/MyRosMaster.java.
 
