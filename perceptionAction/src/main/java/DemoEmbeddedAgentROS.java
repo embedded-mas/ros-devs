@@ -21,24 +21,14 @@ public class DemoEmbeddedAgentROS extends EmbeddedAgent {
 	protected void setupSensors() {
 	
 		
-
-               //nodes.add("topic1"); topics.add("std_msgs/String");
-               //nodes.add("topic2"); topics.add("std_msgs/String");
-
-               
                addTopic("value1", "std_msgs/Int32");
                addTopic("value2", "std_msgs/Int32");
                addTopic("current_time", "std_msgs/String");
                
-               //addTopic("/value1", null);
-               //addTopic("/value2", null);
-               
                /* roscore1 is a connection with a ros master. Instantiate new DefaultRos4EmbeddedMas connect the agent with more ros masters*/
-		DefaultRos4EmbeddedMas roscore1 = new DefaultRos4EmbeddedMas("ws://localhost:9090",nodes, topics);
-		
-		/* a "device" represents a physical device. Instantiate more devices to connect to additional (even non ros) ones   */
-		MyDemoDevice device = new MyDemoDevice(new Atom("roscore1"), roscore1);
-		this.addSensor(device);
+		DefaultRos4EmbeddedMas roscore1 = new DefaultRos4EmbeddedMas("ws://localhost:9090",nodes, topics);		
+   	        MyRosMaster rosMaster = new MyRosMaster(new Atom("roscore1"), roscore1);
+		this.addSensor(rosMaster);
 		
 	}
 

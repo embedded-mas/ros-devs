@@ -17,7 +17,6 @@ mas perception_action {
     agent sample_agent{
       ag-class: DemoEmbeddedAgentROS
       ag-arch: DemoEmbeddedAgentArch
-      //ag-arch: embedded.mas.bridges.jacamo.StatArch
     }
 
 
