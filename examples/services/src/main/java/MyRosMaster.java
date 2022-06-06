@@ -1,25 +1,12 @@
-/**
-
-**/
-
-import java.util.Collection;
-
-import embedded.mas.bridges.jacamo.JSONWatcherDevice;
-import embedded.mas.bridges.jacamo.IPhysicalInterface;
-import embedded.mas.bridges.jacamo.DefaultDevice;
-import embedded.mas.bridges.jacamo.LiteralDevice;
+import embedded.mas.bridges.ros.RosMaster;
 import embedded.mas.bridges.ros.DefaultRos4EmbeddedMas;
+import embedded.mas.bridges.ros.ServiceParameters;
+
 import jason.asSyntax.Atom;
-import jason.asSyntax.Literal;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
-public class MyRosMaster extends LiteralDevice {
+public class MyRosMaster extends RosMaster {
 
 	public MyRosMaster(Atom id, DefaultRos4EmbeddedMas microcontroller) {
 		super(id, microcontroller);
@@ -40,18 +27,22 @@ public class MyRosMaster extends LiteralDevice {
 	@Override
 	public boolean execEmbeddedAction(String actionName, Object[] args) {		
 		if(actionName.equals("move_turtle")){ //handling the action "move_turtle"
-		   try{
-		    //build a JSON with the service parameters
-		    JsonNode params = new ObjectMapper().readTree("{\"linear\":"+args[0]+", \"angular\":"+args[1]+"}");
-		    //send the service request
-		    ((DefaultRos4EmbeddedMas) microcontroller).serviceRequest("/turtle1/teleport_relative",params); 		   
-		   } catch (JsonMappingException e) {
-			e.printStackTrace();
-		   } catch (JsonProcessingException e) {
-			e.printStackTrace();
-		   }
+		   /* building the parameters of the service request.
+		      "p" is a set of parameters (empty when created). 
+		      New parameters are added to the set through the method addParameter.
+		   */
+		   ServiceParameters p = new ServiceParameters(); 
+		   p.addParameter("linear", args[0]);  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
+		   p.addParameter("angular", args[1]); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
+		   
+		   /* Request the service. 
+		      The first parameter of the method serviceRequest is the service name and the second is the set of parameters.
+		      The method serviceRequest is nonblocking: the request is supposed to be successful and, thus, returns true.
+		   */		  
+		   serviceRequest("/turtle1/teleport_relative",p); 
+		   return true;
 		}
-		return true;
+		return false;
 	}
 	
 }
