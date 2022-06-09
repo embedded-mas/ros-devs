@@ -35,6 +35,13 @@ public class MyRosMaster extends RosMaster {
 		   p.addParameter("linear", args[0]);  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
 		   p.addParameter("angular", args[1]); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
 		   
+		   /* Forcing to sleep to simulate the delay of the reply */
+		   try {
+                      Thread.sleep(2000);                
+                   }catch (Exception e) {            
+                     System.out.println(e);
+                   }
+                   
 		   
 		   /* Request the service in the blocking mode: the excution waits the reply from the ros server.
 		      The reply informs whether the request has been successful. If it is not the case, the internal action fails.
