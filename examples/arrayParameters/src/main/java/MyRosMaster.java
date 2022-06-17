@@ -27,19 +27,9 @@ public class MyRosMaster extends RosMaster {
 	@Override
 	public boolean execEmbeddedAction(String actionName, Object[] args) {		
 		if(actionName.equals("teste")){ //handling the action "move_turtle"
-		   /* building the parameters of the service request.
-		      "p" is a set of parameters (empty when created). 
-		      New parameters are added to the set through the method addParameter.
-		   */
-		   
-		   ServiceParameters p = new ServiceParameters(); 
-		   p.addParameter("arrayOfFloatParameter", new Double[]{1.99, 3.14} );  
-		   p.addParameter("arrayOfStringParameter", new String[]{"a","b","c"}); 
-		   
-		   /* Request the service. 
-		      The first parameter of the method serviceRequest is the service name and the second is the set of parameters.
-		      The method serviceRequest is nonblocking: the request is supposed to be successful and, thus, returns true.
-		   */		  
+
+		   ServiceParameters p = new ServiceParameters(); //p is the set of parameters of the requested service
+		   p.addParameter("arrayOfFloatParameter", new Float[]{(Float)args[0], (Float)args[1]} ); //adding a new parameter which is an array of double		   
 		   serviceRequest("/turtle1/teleport_relative",p); 
 		   return true;
 		}
