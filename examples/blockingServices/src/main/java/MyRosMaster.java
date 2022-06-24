@@ -32,12 +32,12 @@ public class MyRosMaster extends RosMaster {
 		      New parameters are added to the set through the method addParameter.
 		   */
 		   ServiceParameters p = new ServiceParameters(); 
-		   p.addParameter("linear", args[0]);  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
-		   p.addParameter("angular", args[1]); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
+		   p.addParameter("linear", Float.parseFloat(args[0].toString()));  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
+		   p.addParameter("angular", Float.parseFloat(args[1].toString())); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
 		   
 		   /* Forcing to sleep to simulate the delay of the reply */
 		   try {
-                      Thread.sleep(2000);                
+                      Thread.sleep(1000);                
                    }catch (Exception e) {            
                      System.out.println(e);
                    }

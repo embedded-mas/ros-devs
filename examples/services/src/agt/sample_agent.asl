@@ -2,6 +2,7 @@
 
 +!move: .random(X) & .random(Y)
    <- embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("roscore1","move_turtle", [X,Y]);
+      //embedded.mas.bridges.jacamo.concurrentEmbeddedInternalAction("roscore1","move_turtle", [X,Y]);
       .wait(500);
       !move.
       

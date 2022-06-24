@@ -32,8 +32,8 @@ public class MyRosMaster extends RosMaster {
 		      New parameters are added to the set through the method addParameter.
 		   */
 		   ServiceParameters p = new ServiceParameters(); 
-		   p.addParameter("linear", args[0]);  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
-		   p.addParameter("angular", args[1]); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
+		   p.addParameter("linear", Float.parseFloat(args[0].toString()));  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
+		   p.addParameter("angular", Float.parseFloat(args[1].toString())); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
 		   
 		   /* Request the service. 
 		      The first parameter of the method serviceRequest is the service name and the second is the set of parameters.

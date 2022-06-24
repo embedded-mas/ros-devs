@@ -28,8 +28,8 @@ public class MyRosMaster extends RosMaster {
 	public boolean execEmbeddedAction(String actionName, Object[] args) {		
 		if(actionName.equals("teste")){ //handling the action "move_turtle"
 
-		   ServiceParameters p = new ServiceParameters(); //p is the set of parameters of the requested service
-		   p.addParameter("arrayOfFloatParameter", new Float[]{(Float)args[0], (Float)args[1]} ); //adding a new parameter which is an array of double		   
+		   ServiceParameters p = new ServiceParameters(); //p is the set of parameters of the requested service		  
+		   p.addParameter("arrayOfFloatParameter", new Float[]{Float.parseFloat(args[0].toString()), Float.parseFloat(args[1].toString())} ); //adding a new parameter which is an array of double		   
 		   serviceRequest("/turtle1/teleport_relative",p); 
 		   return true;
 		}
