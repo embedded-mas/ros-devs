@@ -2,7 +2,7 @@
 
 ## Scenario
 
-This example illustrates a randomly moving turtle agent. The moviment is commanded through a ROS service.
+This example illustrates the customization of beliefs. The application scenario involves a randomly moving turtle agent.
 
 
 
@@ -51,3 +51,7 @@ An agent can connect with multiple ROS core. Additional connectons should be als
 
 The agents use the [`defaultEmbeddedInternalAction`](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/jacamo/defaultEmbeddedInternalAction.java) to act upon external devices (requesting ROS services in this example). This internal action is decoupled of any external device or ROS topic. They are supposed to be translated to service requests by the interface between the agent and the proper physical device. I this example, this is done in [/src/main/java/MyRosMaster.java](https://github.com/embedded-mas/ros-devs/blob/main/examples/services/src/main/java/MyRosMaster.java).
 
+## Belief customization
+To customize beliefs, this example includes the [Ros2SARC class](https://github.com/embedded-mas/ros-devs/blob/main/examples/customBeliefs/src/main/java/Ros2SARC.java), which extends the [default interface between Java and ROS](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/ros/DefaultRos4EmbeddedMas.java). This class overrides the method customBeliefs, which receives as parameters the name of the topic where the beliefs come from and a JSON with the values comming from ROS (use [this tool](https://github.com/embedded-mas/ros-devs/tree/main/util/topicReader) to inspect the JSON that correspond to some topic). The customized beliefs must be properly built in this method. 
+
+This customized interface between Java and ROS must be loaded in the agent instantiation. In this example, it is done in the line 28 of the [DemoEmbeddedAgentROS class](https://github.com/embedded-mas/ros-devs/blob/main/examples/customBeliefs/src/main/java/DemoEmbeddedAgentROS.java).
