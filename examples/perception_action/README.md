@@ -2,7 +2,7 @@
 
 ## Scenario
 
-This example illustrates an agent whose (i) beliefs include values read from ROS topics and (ii) whose actions include wrinting in ROS Topics.
+This example illustrates an agent whose (i) beliefs include values read from ROS topics and (ii) whose actions include writing in ROS Topics.
 
 The scenario includes two topics `value1` and `value2`, which store integer values. When `value1` changes, the agent increments its value and writes it in `value2`. When `value2` changes, the agent increments its value and writes it in `value1`. This process runs in a loop.
 
