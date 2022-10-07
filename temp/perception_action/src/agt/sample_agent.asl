@@ -7,7 +7,7 @@
 
 
 +value1(V).
-+pushed(true) 
++pushed(true) : value1(V)
    <- .print("Read value 1: ", V);
       .wait(100);
       //execute "update_topic2" upon "roscore1". Such action is translated to rostopic pub in MyDemoDevice class
