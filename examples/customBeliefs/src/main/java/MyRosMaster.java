@@ -1,48 +1,43 @@
-import embedded.mas.bridges.ros.RosMaster;
+/**
+
+**/
+
+import java.util.Collection;
+
+import embedded.mas.bridges.jacamo.JSONWatcherDevice;
+import embedded.mas.bridges.jacamo.IPhysicalInterface;
+import embedded.mas.bridges.jacamo.DefaultDevice;
+import embedded.mas.bridges.jacamo.LiteralDevice;
 import embedded.mas.bridges.ros.DefaultRos4EmbeddedMas;
-import embedded.mas.bridges.ros.ServiceParameters;
-
 import jason.asSyntax.Atom;
+import jason.asSyntax.Literal;
 
 
 
-public class MyRosMaster extends RosMaster {
+public class MyRosMaster extends LiteralDevice {
 
 	public MyRosMaster(Atom id, DefaultRos4EmbeddedMas microcontroller) {
 		super(id, microcontroller);
 	}
 
-        /* Translate actions into ros topic publications and service requests.
-           args:
-             - for topic publications: 0. Topic name
-                                       1. Topic type
-                                       2. Topic value
-                                        
-             - for service requests: service arguments are the args elements. 
-                                     They must be properly handled in the execEmbeddedAction function                                           
-             
+        /* Translate actions into ros topic publications 
+           args: 0. Topic name
+                 1. Topic type
+                 2. Topic value
            obs: args are Strings. The action arguments are send to the ros as strings.
                 Type conversions are handled in the "microcontroller" (DefaultRos4EmbeddedMas)       
         */
 	@Override
 	public boolean execEmbeddedAction(String actionName, Object[] args) {		
-		if(actionName.equals("move_turtle")){ //handling the action "move_turtle"
-		   /* building the parameters of the service request.
-		      "p" is a set of parameters (empty when created). 
-		      New parameters are added to the set through the method addParameter.
-		   */
-		   ServiceParameters p = new ServiceParameters(); 
-		   p.addParameter("linear", Float.parseFloat(args[0].toString()));  //add a parameter to "p". The parameter name is "linear" and its value is the 1st in the array "args"
-		   p.addParameter("angular", Float.parseFloat(args[1].toString())); //add a parameter to "p". The parameter name is "angular" and its value is the 2nd in the array "args"
-		   
-		   /* Request the service. 
-		      The first parameter of the method serviceRequest is the service name and the second is the set of parameters.
-		      The method serviceRequest is nonblocking: the request is supposed to be successful and, thus, returns true.
-		   */		  
-		   serviceRequest("/turtle1/teleport_relative",p); 
-		   return true;
-		}
-		return false;
+		if(actionName.equals("update_value1"))		   
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/value1","std_msgs/Int32",(String)args[0]);
+		else
+		if(actionName.equals("update_value2"))		   
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/value2","std_msgs/Int32",(String)args[0]);
+		else	
+		if(actionName.equals("update_time"))		   
+		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/current_time","std_msgs/String",(String)args[0]);	   	   		   
+		return true;
 	}
 	
 }
