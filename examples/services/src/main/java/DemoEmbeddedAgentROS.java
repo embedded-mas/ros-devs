@@ -31,11 +31,6 @@ public class DemoEmbeddedAgentROS extends EmbeddedAgent {
                addTopic("turtle1/pose", "turtlesim/Pose"); 
                
                
-               /* turtle1/color_sensor is a ros topic composed of 3 fields: r, g, and b.
-                  The corresponding belief is turtle1_color_sensor(r(R),g(G),b(B)), where R, G and B are integer values.
-               */
-               addTopic("turtle1/color_sensor", "turtlesim/Color");
-               
                
                /* roscore1 is a connection with a ros master. Instantiate new DefaultRos4EmbeddedMas connect the agent with more ros masters*/
 		DefaultRos4EmbeddedMas roscore1 = new DefaultRos4EmbeddedMas("ws://localhost:9090",topicNames, topicTypes);		

@@ -2,6 +2,7 @@ import embedded.mas.bridges.ros.DefaultRos4EmbeddedMas;
 import embedded.mas.bridges.ros.ServiceParameters;
 import embedded.mas.bridges.ros.RosMaster;
 	
+import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
 
 
@@ -24,7 +25,7 @@ public class MyRosMaster extends RosMaster {
                 Type conversions are handled in the "microcontroller" (DefaultRos4EmbeddedMas)       
         */
 	@Override
-	public boolean execEmbeddedAction(String actionName, Object[] args) {		
+	public boolean execEmbeddedAction(String actionName, Object[] args, Unifier un) {		
 		if(actionName.equals("move_turtle")){ //handling the action "move_turtle"		
 		   
 		   /* building the parameters of the service request.

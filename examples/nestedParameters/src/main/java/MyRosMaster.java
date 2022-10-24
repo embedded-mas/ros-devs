@@ -6,6 +6,7 @@ import embedded.mas.bridges.ros.ServiceParam;
 import jason.asSyntax.Atom;
 import jason.asSyntax.Term;
 import jason.asSyntax.ListTerm;
+import jason.asSemantics.Unifier;
 import static jason.asSyntax.ASSyntax.parseList;;
 
 
@@ -29,7 +30,7 @@ public class MyRosMaster extends RosMaster {
                 Type conversions are handled in the "microcontroller" (DefaultRos4EmbeddedMas)       
         */
 	@Override
-	public boolean execEmbeddedAction(String actionName, Object[] args) {		
+	public boolean execEmbeddedAction(String actionName, Object[] args, Unifier un) {		
 		if(actionName.equals("teste")){ 
 		   ServiceParam pSeq = new ServiceParam("seq", Integer.parseInt(args[0].toString())); //parameter "seq"
 		   ServiceParam pSecs = new ServiceParam("secs",  Integer.parseInt(args[1].toString())); //parameter "secs"

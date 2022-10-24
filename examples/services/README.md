@@ -1,8 +1,7 @@
 # Example of ROS-Based agent
 
 ## Scenario
-
-This example illustrates a randomly moving turtle agent. The moviment is commanded through a ROS service.
+This example illustrates agent actions that correspond to ROS service requests. It contains a randomly moving turtle agent. The moviment is commanded through a ROS service. This service does not have a response message. To illustrate actions that consider the service response, the agent executes the action `get_loggers` and prints the response.
 
 
 

@@ -18,7 +18,7 @@ public class DemoEmbeddedAgentROS extends EmbeddedAgent {
 	}
 
 	@Override
-	protected void setupSensors() {
+	protected void setupDevices() {
 	
 		
                

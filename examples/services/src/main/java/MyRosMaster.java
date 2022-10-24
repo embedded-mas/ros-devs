@@ -1,8 +1,13 @@
+
+
 import embedded.mas.bridges.ros.RosMaster;
 import embedded.mas.bridges.ros.DefaultRos4EmbeddedMas;
 import embedded.mas.bridges.ros.ServiceParameters;
 
+import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
+import jason.asSyntax.Literal;
+import jason.asSyntax.Term;
 
 
 
@@ -25,7 +30,7 @@ public class MyRosMaster extends RosMaster {
                 Type conversions are handled in the "microcontroller" (DefaultRos4EmbeddedMas)       
         */
 	@Override
-	public boolean execEmbeddedAction(String actionName, Object[] args) {		
+	public boolean execEmbeddedAction(String actionName, Object[] args, Unifier un) {		
 		if(actionName.equals("move_turtle")){ //handling the action "move_turtle"
 		   /* building the parameters of the service request.
 		      "p" is a set of parameters (empty when created). 
@@ -41,6 +46,17 @@ public class MyRosMaster extends RosMaster {
 		   */		  
 		   serviceRequest("/turtle1/teleport_relative",p); 
 		   return true;
+		}else
+		/**** Example of service with response ***/
+		if(actionName.equals("get_loggers")){
+			/* The second parameter is null because turtlesim/getloggers is a service that does not require any parameter. 
+			 * Responses of service requests are stored in Literals.
+			*/
+			Literal response = serviceRequestResponse("/turtlesim/get_loggers", null);
+			/* The response must be unified with a variable included in the arguments of the action action triggered by the agent 
+			 * In this case, the only argument is the variable that must record the response.
+			*/
+			return un.unifies(response, (Term) args[0]);
 		}
 		return false;
 	}

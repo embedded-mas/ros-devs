@@ -9,6 +9,8 @@ import embedded.mas.bridges.jacamo.IPhysicalInterface;
 import embedded.mas.bridges.jacamo.DefaultDevice;
 import embedded.mas.bridges.jacamo.LiteralDevice;
 import embedded.mas.bridges.ros.DefaultRos4EmbeddedMas;
+
+import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
 import jason.asSyntax.Literal;
 
@@ -28,7 +30,7 @@ public class MyRosMaster extends LiteralDevice {
                 Type conversions are handled in the "microcontroller" (DefaultRos4EmbeddedMas)       
         */
 	@Override
-	public boolean execEmbeddedAction(String actionName, Object[] args) {		
+	public boolean execEmbeddedAction(String actionName, Object[] args, Unifier un) {		
 		if(actionName.equals("update_value1"))		   
 		   ((DefaultRos4EmbeddedMas) microcontroller).rosWrite("/value1","std_msgs/Int32",(String)args[0]);
 		else
