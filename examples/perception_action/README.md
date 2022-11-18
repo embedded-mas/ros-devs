@@ -31,6 +31,14 @@ rostopic pub /value1 std_msgs/Int32 0
 rostopic pub /current_time std_msgs/String "unknown"
 ```
 
+Optionally, launch all the ROS requirements simultaneously (Linux systems)
+```
+roscore & 
+roslaunch rosbridge_server rosbridge_websocket.launch & 
+rostopic pub /value1 std_msgs/Int32 0 & 
+rostopic pub /current_time std_msgs/String "unknown"
+```
+
 4. Launch the JaCaMo application:
 
 Linux:
