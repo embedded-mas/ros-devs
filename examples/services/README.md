@@ -28,6 +28,11 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 rosrun turtlesim turtlesim_node
 ```
 
+As an option, launch all the ROS requirements simultaneously (Linux systems)
+```
+roscore & roslaunch rosbridge_server rosbridge_websocket.launch & rosrun turtlesim turtlesim_node
+```
+
 4. Launch the JaCaMo application:
 
 Linux:
