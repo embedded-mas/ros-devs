@@ -1,0 +1,8 @@
+prefix=/media/maiquel/DATA/maiquel/git/ros_devs3/ros-devs/ROS_packages/embedded_mas_examples/catkin_ws/devel
+
+Name: embedded_mas_examples
+Description: Description of embedded_mas_examples
+Version: 0.0.0
+Cflags: -I/media/maiquel/DATA/maiquel/git/ros_devs3/ros-devs/ROS_packages/embedded_mas_examples/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
