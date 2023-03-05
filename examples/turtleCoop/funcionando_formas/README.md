@@ -15,7 +15,7 @@ rosrun turtlesim turtlesim_node
 ```
 4. Spawn a second turtle
 ```
-rosservice call /spawn 5.544445 5.544445 3.141592
+rosservice call /spawn 5.544445 5.544445 3.141592 turtle2
 ```
 
 5. Launch the JaCaMo application:
