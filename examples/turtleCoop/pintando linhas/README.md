@@ -23,7 +23,10 @@ Windows:
 ```
 gradlew run 
 ```
-
+5. To see what the line was supposed to look like, try running this on your terminal:
+```
+rosservice call /turtle1/set_pen 0 0 255 5 off
+```
 What's not working:
 
 	The agent 'toruga1' tries to call a service called '/turtle1/set_pen' through it's internal action 'pintar', but it fails. The service service has 5 parameters: 'r', 'g', 'b', 'widht', 'off'. They are, respectively, the values of red, green and blue pixels, the width of the line that will be drawn and the option to not draw the line.
