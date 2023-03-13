@@ -43,7 +43,7 @@
             - g 
             - b
             - width
-            - off                      
+            - "off"                     
         - actionName: get_loggers
           serviceName: /turtlesim/get_loggers  
                     
