@@ -34,7 +34,15 @@
           serviceName: /turtle1/teleport_relative
           params:
             - linear
-            - angular                   
+            - angular
+        - actionName: pintar
+          serviceName: /turtle1/set_pen
+          params:
+            - r
+            - g 
+            - b
+            - width
+            - 'off'                     
         - actionName: get_loggers
           serviceName: /turtlesim/get_loggers  
                     
