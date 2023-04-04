@@ -38,19 +38,25 @@
     <scheme id="scheme1">
         <goal id="pintar">
             <plan operator="sequence">
-                <goal id="square"/>
-                    <plan operator = "parallel"/>
+                <goal id="square">
+                    <plan operator = "parallel">
                         <goal id="pintar_quadrado"/>
                         <goal id="pintar_quadrado_assist"/>
-                <goal id="hexagon"/>
-                    <plan operator = "parallel"/>
+                    </plan>
+                 </goal>
+                <goal id="hexagon">
+                    <plan operator = "parallel">
                         <goal id="pintar_hexagono"/>
                         <goal id="pintar_hexagono_assist"/>
-                <goal id="star"/>
-                    <plan operator = "parallel"/>
+                    </plan>
+                </goal>
+                <goal id="star">
+                    <plan operator = "parallel">
                         <goal id="pintar_estrela"/>
                         <goal id="pintar_estrela_assist"/>
-            </plan>
+                    </plan>
+                </goal>
+            </plan> 
         </goal>
 
         <mission id="pintar_lead" min="1" max="1">
