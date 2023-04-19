@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="http://moise.sourceforge.net/xml/os.xsl" type="text/xsl" ?>
+
+<organisational-specification
+    id="architecture_1"
+    os-version="0.8"
+
+    xmlns='http://moise.sourceforge.net/os'
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:schemaLocation='http://moise.sourceforge.net/os
+                        http://moise.sourceforge.net/xml/os.xsd' >
+
+<structural-specification>
+
+<role-definitions>
+    <role id="pintor1" />
+    <role id="pintor2" />
+    <role id="pintor3" />
+    <role id="pintor4" />
+    <role id="pintor5" />
+    <role id="pintor6" />
+    <role id="pintor7" />
+    <role id="pintor8" />
+    <role id="pintor9" />
+    <role id="pintor10" />
+</role-definitions>
+
+<group-specification id="group1">
+    <roles>
+        <role id="pintor1" min="1" max="1"/>
+        <role id="pintor2" min="1" max="1"/>
+        <role id="pintor3" min="1" max="1"/>
+        <role id="pintor4" min="1" max="1"/>
+        <role id="pintor5" min="1" max="1"/>
+        <role id="pintor6" min="1" max="1"/>
+        <role id="pintor7" min="1" max="1"/>
+        <role id="pintor8" min="1" max="1"/>
+        <role id="pintor9" min="1" max="1"/>
+        <role id="pintor10" min="1" max="1"/>
+    </roles>
+
+    <links>
+       <link from="pintor1" to="pintor2" type="authority"     scope="intra-group" bi-dir="false"/>
+       <link from="pintor2" to="pintor1" type="communication" scope="intra-group" bi-dir="false"/>
+    </links>
+    <formation-constraints>
+       <compatibility from="pintor1" to="soc" />
+       <compatibility from="pintor2" to="soc" />
+       <compatibility from="pintor3" to="soc" />
+       <compatibility from="pintor4" to="soc" />
+       <compatibility from="pintor5" to="soc" />
+       <compatibility from="pintor6" to="soc" />
+       <compatibility from="pintor7" to="soc" />
+       <compatibility from="pintor8" to="soc" />
+       <compatibility from="pintor9" to="soc" />
+       <compatibility from="pintor10" to="soc" />
+    </formation-constraints>
+</group-specification>
+</structural-specification>
+
+<functional-specification>
+    <scheme id="scheme1">
+        <goal id="pintar">
+            <plan operator="sequence">
+                <goal id="square">
+                    <plan operator = "parallel">
+                        <goal id="pintar_quadrado_l1"/>
+                        <goal id="pintar_quadrado_l2"/>
+                        <goal id="pintar_quadrado_l3"/>
+                        <goal id="pintar_quadrado_l4"/>
+                    </plan>
+                 </goal>
+                <goal id="hexagon">
+                    <plan operator = "parallel">
+                        <goal id="pintar_hexagono_l1"/>
+                        <goal id="pintar_hexagono_l2"/>
+                        <goal id="pintar_hexagono_l3"/>
+                        <goal id="pintar_hexagono_l4"/>
+                        <goal id="pintar_hexagono_l5"/>
+                        <goal id="pintar_hexagono_l6"/>
+                    </plan>
+                </goal>
+                <goal id="star">
+                    <plan operator = "parallel">
+                        <goal id="pintar_estrela_l1"/>
+                        <goal id="pintar_estrela_l2"/>
+                        <goal id="pintar_estrela_l3"/>
+                        <goal id="pintar_estrela_l4"/>
+                        <goal id="pintar_estrela_l5"/>
+                        <goal id="pintar_estrela_l6"/>
+                        <goal id="pintar_estrela_l7"/>
+                        <goal id="pintar_estrela_l8"/>
+                        <goal id="pintar_estrela_l9"/>
+                        <goal id="pintar_estrela_l10"/>
+                    </plan>
+                </goal>
+            </plan> 
+        </goal>
+
+        <mission id="pintar_1" min="1" max="1">
+            <goal id="pintar_quadrado_l1"/>
+            <goal id="pintar_hexagono_l1"/>
+            <goal id="pintar_estrela_l1"/>
+        </mission>
+        <mission id="pintar_2" min="1" max="1">
+            <goal id="pintar_quadrado_l2"/>
+            <goal id="pintar_hexagono_l2"/>
+            <goal id="pintar_estrela_l2"/>
+        </mission>
+        <mission id="pintar_3" min="1" max="1">
+            <goal id="pintar_quadrado_l3"/>
+            <goal id="pintar_hexagono_l3"/>
+            <goal id="pintar_estrela_l3"/>
+        </mission>
+        <mission id="pintar_4" min="1" max="1">
+            <goal id="pintar_quadrado_l4"/>
+            <goal id="pintar_hexagono_l4"/>
+            <goal id="pintar_estrela_l4"/>
+        </mission>
+        <mission id="pintar_5" min="1" max="1">
+            <goal id="pintar_hexagono_l5"/>
+            <goal id="pintar_estrela_l5"/>
+        </mission>
+        <mission id="pintar_6" min="1" max="1">
+            <goal id="pintar_hexagono_l6"/>
+            <goal id="pintar_estrela_l6"/>
+        </mission>
+        <mission id="pintar_7" min="1" max="1">
+            <goal id="pintar_estrela_l7"/>
+        </mission>
+        <mission id="pintar_8" min="1" max="1">
+            <goal id="pintar_estrela_l8"/>
+        </mission>
+        <mission id="pintar_9" min="1" max="1">
+            <goal id="pintar_estrela_l9"/>
+        </mission>
+        <mission id="pintar_10" min="1" max="1">
+            <goal id="pintar_estrela_l10"/>
+        </mission>
+    </scheme>
+</functional-specification>
+
+<normative-specification>
+    <!--
+       setup of Moise properties (e.g. role compatibility) handling (regimented or not)
+       when value = "fail", the platform ensures that the property is not broken (the property is thus regiment)
+       when value = "prohibition", violations are produced when the property is not followed by the agents
+       when value = "ignore", no norm is produced 
+       possible properties are defined in https://github.com/moise-lang/moise/blob/master/src/main/java/ora4mas/nopl/tools/os2nopl.java
+       some examples follow
+    -->
+    <!-- properties>
+        <property id="default_management"  value="fail" />
+        <property id="role_compatibility"  value="prohibition" />
+        <property id="mission_cardinality" value="prohibition" />
+    </properties-->
+
+    <!-- the norms of the application -->
+    <norm id="norm1" type="obligation" role="pintor1" mission="pintar_1"/>
+    <norm id="norm2" type="obligation" role="pintor2" mission="pintar_2"/>
+    <norm id="norm3" type="obligation" role="pintor3" mission="pintar_3"/>
+    <norm id="norm4" type="obligation" role="pintor4" mission="pintar_4"/>
+    <norm id="norm5" type="obligation" role="pintor5" mission="pintar_5"/>
+    <norm id="norm6" type="obligation" role="pintor6" mission="pintar_6"/>
+    <norm id="norm7" type="obligation" role="pintor7" mission="pintar_7"/>
+    <norm id="norm8" type="obligation" role="pintor8" mission="pintar_8"/>
+    <norm id="norm9" type="obligation" role="pintor9" mission="pintar_9"/>
+    <norm id="norm10" type="obligation" role="pintor10" mission="pintar_10"/>
+</normative-specification>
+
+</organisational-specification>
