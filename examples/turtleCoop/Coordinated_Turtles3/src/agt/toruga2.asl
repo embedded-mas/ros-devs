@@ -74,6 +74,7 @@
 		   Goal2<Goal
 		  
 	  )
+	  & .my_name(Ag)
   <- //.wait(1000);
      .wait(not(
            obligation(Ag,Norm2,What2,Deadline2)[artifact_id(ArtId),norm(_,Un2)]

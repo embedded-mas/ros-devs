@@ -74,6 +74,7 @@
 		   Goal2<Goal
 		  
 	  )
+	  & .my_name(Ag)
   <- //.wait(1000);
      .print("waiting.....")
      .wait(not(
