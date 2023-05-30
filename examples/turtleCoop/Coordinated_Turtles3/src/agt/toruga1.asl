@@ -67,6 +67,21 @@
       <- embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction("sample_roscore","pintar1", [X,Y,Z,2,off]);
       .wait(1000).    
 
++!fulfill_obligation(Scheme,Goal,ArtId,Mission)
+   : (
+           obligation(Ag,Norm2,What2,Deadline2)[artifact_id(ArtId),norm(_,Un2)]
+		   & (satisfied(Scheme,Goal2)=What2 | done(Scheme,Goal2,Ag)=What2)  &
+		   Goal2<Goal
+		  
+	  )
+  <- //.wait(1000);
+     .wait(not(
+           obligation(Ag,Norm2,What2,Deadline2)[artifact_id(ArtId),norm(_,Un2)]
+		   & (satisfied(Scheme,Goal2)=What2 | done(Scheme,Goal2,Ag)=What2)  &
+		   Goal2<Goal
+		  
+	  ));
+     !fulfill_obligation(Scheme,Goal,ArtId,Mission).
 
 { include("$jacamoJar/templates/common-cartago.asl") }
 { include("$jacamoJar/templates/common-moise.asl") }
