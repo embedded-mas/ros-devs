@@ -41,7 +41,7 @@ rostopic pub /value1 std_msgs/Int32 0
 rostopic pub /value2 std_msgs/Int32 0
 ```
 
-4. Launch the JaCaMo application:
+5. Launch the JaCaMo application:
 
 Linux:
 ```
