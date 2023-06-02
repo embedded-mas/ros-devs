@@ -1,0 +1,24 @@
+- device_id: sample_roscore #device identifier. It is up to the designer to choose this name.
+  className:  MyRosMaster #interface between the agent's perception/action systems and the device.
+  microcontroller: #interface between Java and physical portions of the agent
+      id: ros1 #microcontroller identifier. It is up to the designer to choose this name.
+      connectionString: ws://localhost:9090 #connection with ROS
+      className: DefaultRos4EmbeddedMas  #interface with the microcontroller.      
+  perceptionTopics: #topics whose values are converted into perceptions        
+      - topicName: turtle1/pose
+        topicType: turtlesim/Pose
+        beliefName: turtle_position 
+      - topicName: /value1
+        topicType: std_msgs/Int32
+        beliefName: value 
+      - topicName: /value2
+        topicType: std_msgs/Int32
+        beliefName: other_value   
+  actions: #actions enabled by the physical/virtual device      
+    serviceRequestActions: #this example has only service-based actions
+        - actionName: move_turtle #action name (from agent's perspective)
+          serviceName: /turtle1/teleport_relative #service called to execute the action
+          params: #parameters
+            - linear
+            - angular         
+

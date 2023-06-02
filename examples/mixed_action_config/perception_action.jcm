@@ -1,0 +1,10 @@
+
+mas perception_action {
+
+    agent sample_agent{    
+      ag-class: embedded.mas.bridges.jacamo.CyberPhysicalAgent      
+      ag-arch: embedded.mas.bridges.jacamo.DefaultEmbeddedAgArch
+    }
+
+
+}
