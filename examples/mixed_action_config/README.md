@@ -9,7 +9,7 @@ The turtle agent also reacts to changes in a ROS topic called ```value1```, exec
 
 ## About the mixed configuration
 Part of the Jason-ROS connection is configured in an [yaml](src/sample_agent.yaml) file, as usual. 
-To enable additional configurations, it is necessary to implement a class that extends [RosMaster.java](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/ros/RosMaster.java), which, in this example, is [java/MyRosMaster.java](java/MyRosMaster.java). In the yaml file, set this new class in the ```device_id/className``` parameter.
+To enable additional configurations, it is necessary to implement a class that extends [RosMaster.java](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/ros/RosMaster.java), which, in this example, is [src/java/MyRosMaster.java](java/MyRosMaster.java). In the yaml file, set this new class in the ```device_id/className``` parameter.
 
 
 ## Requirements
