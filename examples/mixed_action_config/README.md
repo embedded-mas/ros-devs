@@ -5,7 +5,7 @@ This example illustrates a mixed Jason-ROS configuration. Part of the ROS-based 
 ## Scenario
 This example illustrates randomly moving turtle agent (see the agent code [here](src/agt/sample_agent.asl)). The turtle agent moves itself by executing the action ```move_turtle```. This action is concretely realized through the ROS service ```/turtle1/teleport_relative```. This service does not have a response message. Actions based on services without response handling are triggered by the ```defaultEmbeddedInternalAction``` internal action.
 
-The turtle agent also reacts to changes in a ROS topic called ```value1```, updating the values of both this same topic and the topic ```value2```.
+The turtle agent also reacts to changes in a ROS topic called ```value1```, executing the action ```update_value```, which changes the values of both this same topic and the topic ```value2```.
 
 ## About the mixed configuration
 Part of the Jason-ROS connection is configured in an [yaml](src/sample_agent.yaml) file, as usual. 
