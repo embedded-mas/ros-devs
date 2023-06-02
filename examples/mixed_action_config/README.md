@@ -1,6 +1,6 @@
 # Example of ROS-Based agent
 
-This example illustrates a mixed Jason-ROS configuration. Part of the ROS-based actions are configured in [src/sample_agent.yaml](src/agt/sample_agent.yaml). More complex actions are configured in [java/MyRosMaster.java](src/java/MyRosMaster.java).
+This example illustrates a mixed Jason-ROS configuration. Part of the ROS-based actions are configured in [src/agt/sample_agent.yaml](src/agt/sample_agent.yaml). More complex actions are configured in [src/java/MyRosMaster.java](src/java/MyRosMaster.java).
 
 ## Scenario
 This example illustrates randomly moving turtle agent (see the agent code [here](src/agt/sample_agent.asl)). The turtle agent moves itself by executing the action ```move_turtle```. This action is concretely realized through the ROS service ```/turtle1/teleport_relative```. This service does not have a response message. Actions based on services without response handling are triggered by the ```defaultEmbeddedInternalAction``` internal action.
