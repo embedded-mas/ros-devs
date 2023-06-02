@@ -1,6 +1,6 @@
 # Example of ROS-Based agent
 
-This example illustrates a mixed Jason-ROS configuration. Part of the ROS-based actions are configured in [src/sample_agent.yaml](src/sample_agent.yaml). Other more complex actions are configured in [java/MyRosMaster.java](src/sample_agent.yaml).
+This example illustrates a mixed Jason-ROS configuration. Part of the ROS-based actions are configured in [src/sample_agent.yaml](src/sample_agent.yaml). More complex actions are configured in [java/MyRosMaster.java](java/MyRosMaster.java).
 
 ## Scenario
 This example illustrates randomly moving turtle agent (see the agent code [here](src/agt/sample_agent.asl)). The turtle agent moves itself by executing the action ```move_turtle```. This action is concretely realized through the ROS service ```/turtle1/teleport_relative```. This service does not have a response message. Actions based on services without response handling are triggered by the ```defaultEmbeddedInternalAction``` internal action.
@@ -8,8 +8,8 @@ This example illustrates randomly moving turtle agent (see the agent code [here]
 The turtle agent also reacts to changes in a ROS topic called ```value1```, executing the action ```update_value```, which changes the values of both this same topic and the topic ```value2```.
 
 ## About the mixed configuration
-Part of the Jason-ROS connection is configured in an [yaml](src/sample_agent.yaml) file, as usual. 
-To enable additional configurations, it is necessary to implement a class that extends [RosMaster.java](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/ros/RosMaster.java), which, in this example, is [src/java/MyRosMaster.java](java/MyRosMaster.java). In the yaml file, set this new class in the ```device_id/className``` parameter.
+Part of the Jason-ROS connection is configured in an [yaml](src/agt/sample_agent.yaml) file, as usual. 
+To enable additional configurations, it is necessary to implement a class that extends [RosMaster.java](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/ros/RosMaster.java), which, in this example, is [src/java/MyRosMaster.java](src/java/MyRosMaster.java). In the yaml file, set this new class in the ```device_id/className``` parameter.
 
 
 ## Requirements
