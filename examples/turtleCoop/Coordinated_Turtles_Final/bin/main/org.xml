@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="http://moise.sourceforge.net/xml/os.xsl" type="text/xsl" ?>
+
+<organisational-specification
+    id="architecture_1"
+    os-version="0.8"
+
+    xmlns='http://moise.sourceforge.net/os'
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:schemaLocation='http://moise.sourceforge.net/os
+                        http://moise.sourceforge.net/xml/os.xsd' >
+
+<structural-specification>
+
+<role-definitions>
+    <role id="painter1" />
+    <role id="painter2" />
+    <role id="painter3" />
+    <role id="painter4" />
+    <role id="painter5" />
+    <role id="painter6" />
+    <role id="painter7" />
+    <role id="painter8" />
+    <role id="painter9" />
+    <role id="painter10" />
+</role-definitions>
+
+<group-specification id="group1">
+    <roles>
+        <role id="painter1" min="1" max="1"/>
+        <role id="painter2" min="1" max="1"/>
+        <role id="painter3" min="1" max="1"/>
+        <role id="painter4" min="1" max="1"/>
+        <role id="painter5" min="1" max="1"/>
+        <role id="painter6" min="1" max="1"/>
+        <role id="painter7" min="1" max="1"/>
+        <role id="painter8" min="1" max="1"/>
+        <role id="painter9" min="1" max="1"/>
+        <role id="painter10" min="1" max="1"/>
+    </roles>
+
+    <links>
+       <link from="painter1" to="painter2" type="authority"     scope="intra-group" bi-dir="false"/>
+       <link from="painter2" to="painter1" type="communication" scope="intra-group" bi-dir="false"/>
+    </links>
+    <formation-constraints>
+       <compatibility from="painter1" to="soc" />
+       <compatibility from="painter2" to="soc" />
+       <compatibility from="painter3" to="soc" />
+       <compatibility from="painter4" to="soc" />
+       <compatibility from="painter5" to="soc" />
+       <compatibility from="painter6" to="soc" />
+       <compatibility from="painter7" to="soc" />
+       <compatibility from="painter8" to="soc" />
+       <compatibility from="painter9" to="soc" />
+       <compatibility from="painter10" to="soc" />
+    </formation-constraints>
+</group-specification>
+</structural-specification>
+
+<functional-specification>
+    <scheme id="scheme1">
+        <goal id="paint">
+            <plan operator="sequence">
+                <goal id="square">
+                    <plan operator = "parallel">
+                        <goal id="paint_square_s1"/>
+                        <goal id="paint_square_s2"/>
+                        <goal id="paint_square_s3"/>
+                        <goal id="paint_square_s4"/>
+                    </plan>
+                 </goal>
+                <goal id="hexagon">
+                    <plan operator = "parallel">
+                        <goal id="paint_hexagon_s1"/>
+                        <goal id="paint_hexagon_s2"/>
+                        <goal id="paint_hexagon_s3"/>
+                        <goal id="paint_hexagon_s4"/>
+                        <goal id="paint_hexagon_s5"/>
+                        <goal id="paint_hexagon_s6"/>
+                    </plan>
+                </goal>
+                <goal id="star">
+                    <plan operator = "parallel">
+                        <goal id="paint_star_s1"/>
+                        <goal id="paint_star_s2"/>
+                        <goal id="paint_star_s3"/>
+                        <goal id="paint_star_s4"/>
+                        <goal id="paint_star_s5"/>
+                        <goal id="paint_star_s6"/>
+                        <goal id="paint_star_s7"/>
+                        <goal id="paint_star_s8"/>
+                        <goal id="paint_star_s9"/>
+                        <goal id="paint_star_s10"/>
+                    </plan>
+                </goal>
+            </plan> 
+        </goal>
+
+        <mission id="paint_s1" min="1" max="1">
+            <goal id="paint_square_s1"/>
+            <goal id="paint_hexagon_s1"/>
+            <goal id="paint_star_s1"/>
+        </mission>
+        <mission id="paint_s2" min="1" max="1">
+            <goal id="paint_square_s2"/>
+            <goal id="paint_hexagon_s2"/>
+            <goal id="paint_star_s2"/>
+        </mission>
+        <mission id="paint_s3" min="1" max="1">
+            <goal id="paint_square_s3"/>
+            <goal id="paint_hexagon_s3"/>
+            <goal id="paint_star_s3"/>
+        </mission>
+        <mission id="paint_s4" min="1" max="1">
+            <goal id="paint_square_s4"/>
+            <goal id="paint_hexagon_s4"/>
+            <goal id="paint_star_s4"/>
+        </mission>
+        <mission id="paint_s5" min="1" max="1">
+            <goal id="paint_hexagon_s5"/>
+            <goal id="paint_star_s5"/>
+        </mission>
+        <mission id="paint_s6" min="1" max="1">
+            <goal id="paint_hexagon_s6"/>
+            <goal id="paint_star_s6"/>
+        </mission>
+        <mission id="paint_s7" min="1" max="1">
+            <goal id="paint_star_s7"/>
+        </mission>
+        <mission id="paint_s8" min="1" max="1">
+            <goal id="paint_star_s8"/>
+        </mission>
+        <mission id="paint_s9" min="1" max="1">
+            <goal id="paint_star_s9"/>
+        </mission>
+        <mission id="paint_s10" min="1" max="1">
+            <goal id="paint_star_s10"/>
+        </mission>
+    </scheme>
+</functional-specification>
+
+<normative-specification>
+    <!--
+       setup of Moise properties (e.g. role compatibility) handling (regimented or not)
+       when value = "fail", the platform ensures that the property is not broken (the property is thus regiment)
+       when value = "prohibition", violations are produced when the property is not followed by the agents
+       when value = "ignore", no norm is produced 
+       possible properties are defined in https://github.com/moise-lang/moise/blob/master/src/main/java/ora4mas/nopl/tools/os2nopl.java
+       some examples follow
+    -->
+    <!-- properties>
+        <property id="default_management"  value="fail" />
+        <property id="role_compatibility"  value="prohibition" />
+        <property id="mission_cardinality" value="prohibition" />
+    </properties-->
+
+    <!-- the norms of the application -->
+    <norm id="norm1" type="obligation" role="painter1" mission="paint_s1"/>
+    <norm id="norm2" type="obligation" role="painter2" mission="paint_s2"/>
+    <norm id="norm3" type="obligation" role="painter3" mission="paint_s3"/>
+    <norm id="norm4" type="obligation" role="painter4" mission="paint_s4"/>
+    <norm id="norm5" type="obligation" role="painter5" mission="paint_s5"/>
+    <norm id="norm6" type="obligation" role="painter6" mission="paint_s6"/>
+    <norm id="norm7" type="obligation" role="painter7" mission="paint_s7"/>
+    <norm id="norm8" type="obligation" role="painter8" mission="paint_s8"/>
+    <norm id="norm9" type="obligation" role="painter9" mission="paint_s9"/>
+    <norm id="norm10" type="obligation" role="painter10" mission="paint_s10"/>
+</normative-specification>
+
+</organisational-specification>
