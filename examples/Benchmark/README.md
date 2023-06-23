@@ -57,4 +57,7 @@ Windows:
 ```
 gradlew run 
 ```
-
+6. Initiate the test by writing in the ROS topic.
+```
+rostopic pub /value1 std_msgs/Int32 0
+```
