@@ -2,13 +2,11 @@
 
 1. Go to "your_ROS_package/src".
 
-   Don't forget to change 'your_ROS_package' for your actual package name.
+Don't forget to change 'your_ROS_package' for your actual package name.
 
 2. Create a folder named "scripts" (if it doesn't exist yet).
 
 3. Copy time_listener.py into it.
-
-   You can find this file in the folder named Ros_node.
 
 4. Under your Ros workspace directory, use the command
 ```
@@ -20,7 +18,7 @@
  source ./devel/setup.bash
 ```
 
-Following these steps, you should be able to add the time_listener node to your ROS package.
+Following these steps, you should to able to add the time_listener node to your ROS package.
 
 ## Running the example
 
@@ -40,14 +38,14 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 ```
 rosrun your_package_name time_listener.py
 ```
-   Don't forget to change 'your_package_name' for your actual package name.
+Don't forget to change 'your_package_name' for your actual package name.
 
 4. Write an initial value in the ROS topic
 
 ```
 rostopic pub /value1 std_msgs/Int32 4
 ```
-   Avoid using the values 0 or 1 in this step, as they trigger the agent's actions.
+Avoid using the values 0 or 1 in this step, as it triggers the agent's actions.
 
 5. Launch the JaCaMo application:
 
@@ -59,7 +57,4 @@ Windows:
 ```
 gradlew run 
 ```
-6. Initiate the test by writing in the ROS topic.
-```
-rostopic pub /value1 std_msgs/Int32 0
-```
+
