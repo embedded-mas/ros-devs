@@ -2,7 +2,11 @@
 
 ## Scenario
 
-This example illustrates a randomly moving turtle agent. The moviment is commanded through a ROS service.
+This example illustrates the use of concurrent internal actions. 
+When using a default internal action, all the agent thread is blocked until the action is finished. 
+On the other hand, when using a concurrent internal action, only the intention using the internal action is suspended.
+
+This example illustrates a randomly moving turtle agent. The movement is commanded through a ROS service triggered by a concurrent internal action. Parallel to this, the turtle agent prints a counter in the console. 
 
 
 
@@ -51,5 +55,4 @@ An agent can connect with multiple ROS core. Additional connectons should be als
 
 The agents use the [`defaultEmbeddedInternalAction`](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/jacamo/defaultEmbeddedInternalAction.java) to act upon external devices (requesting ROS services in this example). This internal action is decoupled of any external device or ROS topic. They are supposed to be translated to service requests by the interface between the agent and the proper physical device. I this example, this is done in [/src/main/java/MyRosMaster.java](https://github.com/embedded-mas/ros-devs/blob/main/examples/services/src/main/java/MyRosMaster.java).
 
-In this example, the service request is blocking: it waits for the service reply before continuing to execute. This reply is stored in a JSON variable that can be properly handled according to the application requirements. The JSON reply includes a field that returns the result of the request (true for successful request, false otherwise). In the example, this value becomes the result of the execution of the internal action.
 
