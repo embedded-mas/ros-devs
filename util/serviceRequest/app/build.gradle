@@ -11,6 +11,12 @@ plugins {
     id 'application'
 }
 
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(21)
+//    }
+//}
+
 repositories {
     maven { url "https://raw.github.com/jacamo-lang/mvn-repo/master" } 
     maven { url "https://raw.github.com/embedded-mas/embedded-mas-mvn-repo/master" }
@@ -24,7 +30,7 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
     
-    implementation "embedded-mas:embedded-mas:0.039-SNAPSHOT"
+    implementation "embedded-mas:embedded-mas:0.055-SNAPSHOT"
 }
 
 application {
