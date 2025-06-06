@@ -11,6 +11,10 @@ The turtle agent also reacts to changes in a ROS topic called ```value1```, exec
 Part of the Jason-ROS connection is configured in an [yaml](src/agt/sample_agent.yaml) file, as usual. 
 To enable additional configurations, it is necessary to implement a class that extends [RosMaster.java](https://github.com/embedded-mas/embedded-mas/blob/master/src/main/java/embedded/mas/bridges/ros/RosMaster.java), which, in this example, is [src/java/MyRosMaster.java](src/java/MyRosMaster.java). In the yaml file, set this new class in the ```device_id/className``` parameter.
 
+Actions that are not configured in the yaml (```update_value``` in this example) do not have a corresponding internal action created automatically. Options for running these actions are:
+1. create by hand the internal action in the folder src/java/jason/stdlib (just copy an existing internal action, giving both to the file and to the java class  the same name of the agent's action )
+2. use the internal action embedded.mas.bridges.jacamo.defaultEmbeddedInternalAction.
+
 
 ## Requirements
 1. ROS (recommended [ROS Noetic](http://wiki.ros.org/noetic))

@@ -23,8 +23,8 @@ public class MyRosMaster extends RosMaster{
           
 		// The action "update_value" is realized through the writing in 2 topics */
 		if(actionName.equals("update_value")){		   
-		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value1","std_msgs/Int32",(String)args[0]);
-		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value2","std_msgs/Int32",(String)args[0]);
+		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value1","std_msgs/Int32",args[0].toString());
+		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value2","std_msgs/Int32",args[0].toString());
 		}
 
 		
