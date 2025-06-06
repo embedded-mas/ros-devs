@@ -22,8 +22,13 @@ public class MyRosMaster extends RosMaster{
 		//Execute a customized actions 
           
 		// The action "update_value" is realized through the writing in 2 topics */
+		// Parameters of the method rosWrite:
+		//     - topic name
+		//     - topic type
+		//     - value to be written in the topic
 		if(actionName.equals("update_value")){		   
 		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value1","std_msgs/Int32",args[0].toString());
+		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value2","std_msgs/Int32",args[0].toString());
 		   ((DefaultRos4EmbeddedMas) this.getMicrocontroller()).rosWrite("/value2","std_msgs/Int32",args[0].toString());
 		}
 
